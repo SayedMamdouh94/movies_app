@@ -1,0 +1,12 @@
+{
+ "cancel": "Cancel",
+ "confirm": "Confirm",
+ "thisFieldIsRequired": "This field is required",
+ "passwordMustBeAtLeast6Characters": "Password must be at least 6 characters",
+ "passwordMustContainAtLeastOneLowercaseLetter": "Password must contain at least one lowercase letter",
+  "passwordMustContainAtLeastOneUppercaseLetter": "Password must contain at least one uppercase letter",
+ "passwordMustContainAtLeastOneNumber": "Password must contain at least one number",
+  "passwordMustContainAtLeastOneSpecialCharacter": "Password must contain at least one special character"
+}
+
+
