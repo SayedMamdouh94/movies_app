@@ -386,7 +386,7 @@ class _CustomTextFieldState extends State<CustomTextField>
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           CustomText(
-            '${currentLength}/${maxLength}',
+            '$currentLength/$maxLength',
             style: context.textTheme.labelSmall,
             color: isNearLimit
                 ? (currentLength >= maxLength

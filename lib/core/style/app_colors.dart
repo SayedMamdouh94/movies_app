@@ -31,7 +31,7 @@ class AppColors {
   static const Color kInfo = Color(0xFF3498DB); // Optional: Can be muted blue
 
   // Backgrounds
-  static const Color kBackground = Color(0xFFf9f7f4ff);
+  static const Color kBackground = Color(0xfff9f7f4ff);
   static const Color kWhite = Color(0xFFFFFFFF);
   static const Color kBlack = Color(0xFF000000);
 

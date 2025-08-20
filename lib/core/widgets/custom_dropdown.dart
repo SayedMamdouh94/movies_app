@@ -216,7 +216,7 @@ class _CustomDropdownFieldState<T> extends State<CustomDropdownField<T>>
     final selectedOption = widget.options.firstWhere(
       (option) => option.value == widget.value,
       orElse: () =>
-          CustomDropdownOption(value: widget.value!, label: widget.hintText),
+          CustomDropdownOption(value: widget.value as T, label: widget.hintText),
     );
 
     return selectedOption.label;
