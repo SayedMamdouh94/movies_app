@@ -19,6 +19,14 @@ class DioFactory {
         'Accept-Language': language,
       }
       ..interceptors.add(
+        InterceptorsWrapper(
+          onRequest: (options, handler) async {
+            // Note: TMDB API key is now passed as query parameter in individual service calls
+            handler.next(options);
+          },
+        ),
+      )
+      ..interceptors.add(
         PrettyDioLogger(
           requestBody: true,
           requestHeader: true,
