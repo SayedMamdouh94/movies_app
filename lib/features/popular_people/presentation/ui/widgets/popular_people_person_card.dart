@@ -62,16 +62,11 @@ class PopularPeoplePersonInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      spacing: 4.h,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CustomText(
-          person.name,
-          fontSize: 16,
-          fontWeight: FontWeight.w600,
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-        ),
-        const SizedBox(height: 4),
+        CustomText(person.name, maxLines: 1, overflow: TextOverflow.ellipsis),
+      
         CustomText(
           person.knownForDepartment,
           fontSize: 14,
@@ -79,7 +74,6 @@ class PopularPeoplePersonInfo extends StatelessWidget {
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
-        const SizedBox(height: 4),
         PopularPeoplePersonKnownFor(person: person),
       ],
     );

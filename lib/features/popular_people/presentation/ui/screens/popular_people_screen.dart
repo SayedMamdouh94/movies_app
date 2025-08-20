@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/core/widgets/custom_scaffold.dart';
 import 'package:movies_app/features/popular_people/presentation/cubit/popular_people_cubit.dart';
-import 'package:movies_app/features/popular_people/presentation/widgets/popular_people_error_widget.dart';
-import 'package:movies_app/features/popular_people/presentation/widgets/popular_people_list_view.dart';
-import 'package:movies_app/features/popular_people/presentation/widgets/popular_people_loading_widgets.dart';
+import 'package:movies_app/features/popular_people/presentation/ui/widgets/popular_people_error_widget.dart';
+import 'package:movies_app/features/popular_people/presentation/ui/widgets/popular_people_list_view.dart';
+import 'package:movies_app/features/popular_people/presentation/ui/widgets/popular_people_loading_widgets.dart';
 
 class PopularPeopleScreen extends StatelessWidget {
   const PopularPeopleScreen({super.key});

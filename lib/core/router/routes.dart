@@ -3,5 +3,6 @@ class Routes {
 
   static const String splash = '/splash';
   static const String popularPeople = '/popular-people';
-  
+  static const String personDetails = '/person-details';
+
 }
