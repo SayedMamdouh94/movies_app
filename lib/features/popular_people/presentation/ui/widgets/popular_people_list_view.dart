@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_app/core/helpers/extensions/context_extenstions.dart';
 import 'package:movies_app/core/helpers/snackbar.dart';
+import 'package:movies_app/core/router/routes.dart';
 import 'package:movies_app/features/popular_people/data/models/popular_people_response_model.dart';
 import 'package:movies_app/features/popular_people/presentation/cubit/popular_people_cubit.dart';
-import 'package:movies_app/features/popular_people/presentation/widgets/popular_people_person_card.dart';
-import 'package:movies_app/features/popular_people/presentation/widgets/popular_people_loading_widgets.dart';
+import 'package:movies_app/features/popular_people/presentation/ui/widgets/popular_people_person_card.dart';
+import 'package:movies_app/features/popular_people/presentation/ui/widgets/popular_people_loading_widgets.dart';
 
 class PopularPeopleListView extends StatefulWidget {
   final List<PopularPersonModel> people;
@@ -74,6 +76,6 @@ class _PopularPeopleListViewState extends State<PopularPeopleListView> {
 
   void _onPersonTap(PopularPersonModel person) {
     showSnackBar('Selected: ${person.name}');
-    // TODO: Navigate to person details screen
+    context.pushNamed(Routes.personDetails, arguments: person.id);
   }
 }

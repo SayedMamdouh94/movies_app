@@ -1,23 +1,23 @@
 import 'package:dio/dio.dart';
-import 'package:movies_app/core/error_handler/error_handler.dart';
+import 'package:movies_app/core/error_handler/dio_error_handler.dart';
 import 'package:movies_app/core/local_secure_storage/local_secure_storage.dart';
 import 'package:movies_app/core/networking/data_result.dart';
-import 'package:movies_app/features/popular_people/data/apis/popular_people_api_service.dart';
-import 'package:movies_app/features/popular_people/data/models/popular_people_response_model.dart';
+import 'package:movies_app/features/person_details/data/apis/person_details_api_service.dart';
+import 'package:movies_app/features/person_details/data/models/person_details_response_model.dart';
 
-class PopularPeopleRepo {
-  final PopularPeopleApiService _apiService;
+class PersonDetailsRepo {
+  final PersonDetailsApiService _apiService;
 
-  PopularPeopleRepo(this._apiService);
+  PersonDetailsRepo(this._apiService);
 
-  Future<DataResult<PopularPeopleResponseModel>> getPopularPeople({
-    int page = 1,
+  Future<DataResult<PersonDetailsResponseModel>> getPersonDetails({
+    required int personId,
     String? language,
   }) async {
     try {
       final apiKey = await LocalSecureStorage.tmdbApiKey;
-      final result = await _apiService.getPopularPeople(
-        page: page,
+      final result = await _apiService.getPersonDetails(
+        personId: personId,
         language: language,
         apiKey: apiKey,
       );
