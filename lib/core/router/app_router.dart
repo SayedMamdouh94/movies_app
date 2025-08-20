@@ -1,10 +1,14 @@
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_app/core/di/dependency_injection.dart';
 import 'package:movies_app/core/router/routes.dart';
 import 'package:movies_app/core/style/app_colors.dart';
 import 'package:movies_app/features/splash/presentation/ui/splash_screen.dart';
-import 'package:movies_app/features/intro/presentation/ui/intro_screen.dart';
+import 'package:movies_app/features/popular_people/data/repo/popular_people_repo.dart';
+import 'package:movies_app/features/popular_people/presentation/cubit/popular_people_cubit.dart';
+import 'package:movies_app/features/popular_people/presentation/ui/popular_people_screen.dart';
 
 class AppRouter {
   PageRoute? onGenerateRoute(RouteSettings settings) {
@@ -12,8 +16,15 @@ class AppRouter {
       case Routes.splash:
         return _getPageRoute(const SplashScreen());
 
-      case Routes.intro:
-        return _getPageRoute(const IntroScreen());
+      case Routes.popularPeople:
+        return _getPageRoute(
+          BlocProvider(
+            create: (context) =>
+                PopularPeopleCubit(getIt<PopularPeopleRepo>())
+                  ..loadPopularPeople(),
+            child: const PopularPeopleScreen(),
+          ),
+        );
 
       default:
         return null;

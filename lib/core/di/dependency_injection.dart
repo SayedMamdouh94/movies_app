@@ -8,12 +8,18 @@ import 'package:movies_app/core/services/file_picker_factory.dart';
 import 'package:movies_app/core/services/file_picker_service.dart';
 import 'package:movies_app/core/services/file_uploading_factory.dart';
 import 'package:movies_app/core/services/file_uploading_service.dart';
+import 'package:movies_app/features/popular_people/data/apis/popular_people_api_service.dart';
+import 'package:movies_app/features/popular_people/data/repo/popular_people_repo.dart';
 
 final getIt = GetIt.instance;
 void setupGetIt() {
   Dio dio = DioFactory.init();
-  // API SERVICE
+  // API SERVICES
   getIt.registerLazySingleton(() => ApiService(dio));
+  getIt.registerLazySingleton(() => PopularPeopleApiService(dio));
+
+  // REPOSITORIES
+  getIt.registerLazySingleton(() => PopularPeopleRepo(getIt()));
 
   // FILE UPLOADER FACTORY
   getIt.registerLazySingleton(
@@ -36,5 +42,4 @@ void setupGetIt() {
       videoPicker: VideoPickerService(),
     ),
   );
-  
 }
