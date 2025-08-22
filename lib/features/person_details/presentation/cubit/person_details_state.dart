@@ -15,3 +15,14 @@ final class PersonDetailsError extends PersonDetailsState {
 
   PersonDetailsError(this.message);
 }
+final class PersonImagesLoading extends PersonDetailsState {}
+final class PersonImagesLoaded extends PersonDetailsState {
+  final PersonImagesResponseModel personImages;
+
+  PersonImagesLoaded(this.personImages);
+}
+final class PersonImagesError extends PersonDetailsState {
+  final String message;
+
+  PersonImagesError(this.message);
+}

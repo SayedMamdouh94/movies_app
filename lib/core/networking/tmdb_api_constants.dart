@@ -9,6 +9,9 @@ class TmdbApiConstants {
   // Person details endpoint
   static const String personDetails = 'person/{personId}';
 
+  // Person images endpoint
+  static const String personImages = 'person/{personId}/images';
+
   // Images
   static const String imageBaseUrl = 'https://image.tmdb.org/t/p/';
   static const String posterSize = 'w500';
@@ -29,5 +32,10 @@ class TmdbApiConstants {
   static String getProfileUrl(String? profilePath) {
     if (profilePath == null || profilePath.isEmpty) return '';
     return '$imageBaseUrl$profileSize$profilePath';
+  }
+
+  static String getImageUrl(String? imagePath, {String size = 'w500'}) {
+    if (imagePath == null || imagePath.isEmpty) return '';
+    return '$imageBaseUrl$size$imagePath';
   }
 }

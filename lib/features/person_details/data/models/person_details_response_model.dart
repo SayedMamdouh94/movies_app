@@ -28,17 +28,17 @@ class PersonDetailsResponseModel {
     required this.adult,
     required this.alsoKnownAs,
     required this.biography,
-    required this.birthday,
-    required this.deathday,
+    this.birthday,
+    this.deathday,
     required this.gender,
-    required this.homepage,
+    this.homepage,
     required this.id,
     required this.imdbId,
     required this.knownForDepartment,
     required this.name,
-    required this.placeOfBirth,
+    this.placeOfBirth,
     required this.popularity,
-    required this.profilePath,
+    this.profilePath,
   });
 
   factory PersonDetailsResponseModel.fromJson(Map<String, dynamic> json) =>

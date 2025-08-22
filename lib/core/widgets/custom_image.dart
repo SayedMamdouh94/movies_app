@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movies_app/core/networking/api_constants.dart';
 import 'package:movies_app/core/style/app_colors.dart';
 import 'package:movies_app/core/widgets/custom_loading_indicator.dart';
 
@@ -58,10 +57,7 @@ class CustomImage extends StatelessWidget {
                     opacity: isLoading ? 0.5 : 1,
                     child: _buildImageWidget(),
                   ),
-                  if (isLoading)
-                    const Center(
-                      child: CustomLoadingIndicator(),
-                    ),
+                  if (isLoading) const Center(child: CustomLoadingIndicator()),
                 ],
               ),
             )
@@ -73,37 +69,46 @@ class CustomImage extends StatelessWidget {
                   opacity: isLoading ? 0.5 : 1,
                   child: _buildImageWidget(),
                 ),
-                if (isLoading)
-                  const Center(
-                    child: CustomLoadingIndicator(),
-                  ),
+                if (isLoading) const Center(child: CustomLoadingIndicator()),
               ],
             ),
     );
   }
 
   Widget _buildImageWidget() => Container(
-        width: width.w,
-        height: height.h,
-        decoration: BoxDecoration(
-          color: backgroundColor ?? AppColors.kGray100,
-          borderRadius: BorderRadius.circular(radius),
-          border: hasBorder
-              ? Border.all(color: borderColor ?? AppColors.kGray200, width: 1)
-              : null,
-        ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(radius),
-          child: CachedNetworkImage(
-            imageUrl:
-                imageUrl == null ? '' : '${ApiConstants.baseUrl}$imageUrl',
-            fit: fit,
-            width: width,
-            height: height,
-            placeholder: (context, url) => const CustomShimmer(),
-            errorWidget: (context, url, error) =>
-                displayError ? const Icon(Icons.error) : const CustomShimmer(),
-          ),
-        ),
-      );
+    width: width.w,
+    height: height.h,
+    decoration: BoxDecoration(
+      color: backgroundColor ?? AppColors.kGray100,
+      borderRadius: BorderRadius.circular(radius),
+      border: hasBorder
+          ? Border.all(color: borderColor ?? AppColors.kGray200, width: 1)
+          : null,
+    ),
+    child: ClipRRect(
+      borderRadius: BorderRadius.circular(radius),
+      child: CachedNetworkImage(
+        imageUrl: _buildImageUrl(),
+        fit: fit,
+        width: width,
+        height: height,
+        placeholder: (context, url) => const CustomShimmer(),
+        errorWidget: (context, url, error) =>
+            displayError ? const Icon(Icons.error) : const CustomShimmer(),
+      ),
+    ),
+  );
+
+  String _buildImageUrl() {
+    if (imageUrl == null || imageUrl!.isEmpty) return '';
+
+    // If the URL already starts with http or https, use it as is
+    if (imageUrl!.startsWith('http://') || imageUrl!.startsWith('https://')) {
+      return imageUrl!;
+    }
+
+    // For relative URLs, you might want to add a base URL
+    // For now, returning as is for compatibility
+    return imageUrl!;
+  }
 }

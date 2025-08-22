@@ -21,17 +21,16 @@ class AppRouter {
         return _getPageRoute(
           BlocProvider(
             create: (context) =>
-                PopularPeopleCubit(getIt())
-                  ..loadPopularPeople(),
+                PopularPeopleCubit(getIt())..loadPopularPeople(),
             child: const PopularPeopleScreen(),
           ),
         );
       case Routes.personDetails:
-      final personId = settings.arguments as int;
+        final personId = settings.arguments as int;
         return _getPageRoute(
           BlocProvider(
-            create: (context) => PersonDetailsCubit(getIt())
-              ..loadPersonDetails(personId),
+            create: (context) =>
+                PersonDetailsCubit(getIt())..loadPersonDetails(personId),
             child: PersonDetailsScreen(personId: personId),
           ),
         );
