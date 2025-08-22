@@ -7,10 +7,10 @@ part of 'upload_file_response_model.dart';
 // **************************************************************************
 
 UploadFileResponseModel _$UploadFileResponseModelFromJson(
-        Map<String, dynamic> json) =>
-    UploadFileResponseModel(
-      statusCode: (json['statusCode'] as num?)?.toInt(),
-      message: json['message'] as String,
-      data: json['data'] as String?,
-      success: json['success'] as bool,
-    );
+  Map<String, dynamic> json,
+) => UploadFileResponseModel(
+  statusCode: (json['statusCode'] as num?)?.toInt(),
+  message: json['message'] as String,
+  data: json['data'] as String?,
+  success: json['success'] as bool,
+);

@@ -95,10 +95,10 @@ class _SplashScreenState extends State<SplashScreen>
       _textController.forward();
     });
 
-    // Navigate to intro screen after all animations complete
+    // Navigate to popular people screen after all animations complete
     Future.delayed(const Duration(milliseconds: 3000), () {
       if (mounted) {
-        context.pushNamedAndRemoveUntil(Routes.intro);
+        context.pushNamedAndRemoveUntil(Routes.popularPeople);
       }
     });
   }

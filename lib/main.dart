@@ -10,13 +10,15 @@ import 'movies_app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   // Lock device orientation to portrait only
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await LocalStorage.init();
   setupGetIt();
-  LocalSecureStorage.init();
+  await LocalSecureStorage.init();
+
+  // Save TMDB API key for API usage
+  await LocalSecureStorage.saveTmdbToken();
+
   runApp(const MoviesApp());
 }

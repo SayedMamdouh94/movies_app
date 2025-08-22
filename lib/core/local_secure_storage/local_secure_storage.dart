@@ -48,4 +48,19 @@ class LocalSecureStorage {
 
   static Future<void> get clearAllData async =>
       await _secureStorage.deleteAll();
+
+  // Method to save TMDB API key for API usage
+  static Future<void> saveTmdbToken() async {
+    const String tmdbApiKey = '66ed44846adddce0ed5fcaf0648b4e0b';
+    // Clear any existing tokens first
+    await _secureStorage.delete(key: 'tmdb_api_key');
+    await _secureStorage.delete(key: _accessToken);
+    // Save the new API key
+    await _secureStorage.write(key: 'tmdb_api_key', value: tmdbApiKey);
+  }
+
+  static Future<String> get tmdbApiKey async {
+    final apiKey = await _secureStorage.read(key: 'tmdb_api_key');
+    return apiKey ?? '66ed44846adddce0ed5fcaf0648b4e0b';
+  }
 }
