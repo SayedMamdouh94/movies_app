@@ -5,11 +5,17 @@ import 'package:movies_app/features/person_details/presentation/ui/widgets/perso
 import 'package:movies_app/features/person_details/presentation/ui/widgets/person_details_basic_info.dart';
 import 'package:movies_app/features/person_details/presentation/ui/widgets/person_details_personal_info.dart';
 import 'package:movies_app/features/person_details/presentation/ui/widgets/person_details_biography_section.dart';
+import 'package:movies_app/features/person_details/presentation/ui/widgets/images_grid/person_details_images_section.dart';
 
 class PersonDetailsContent extends StatelessWidget {
-  const PersonDetailsContent({super.key, required this.personDetails});
+  const PersonDetailsContent({
+    super.key,
+    required this.personDetails,
+    required this.personId,
+  });
 
   final PersonDetailsResponseModel personDetails;
+  final int personId;
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +35,7 @@ class PersonDetailsContent extends StatelessWidget {
                 if (personDetails.biography.isNotEmpty) ...[
                   PersonDetailsBiographySection(personDetails: personDetails),
                 ],
+                PersonDetailsImagesSection(personId: personId),
               ],
             ),
           ),

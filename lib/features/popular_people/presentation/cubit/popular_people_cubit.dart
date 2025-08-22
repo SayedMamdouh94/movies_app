@@ -11,7 +11,7 @@ class PopularPeopleCubit extends Cubit<PopularPeopleState> {
   PopularPeopleCubit(this._repository) : super(PopularPeopleInitial());
 
   int _currentPage = 1;
-  List<PopularPersonModel> _allPeople = [];
+  final List<PopularPersonModel> _allPeople = [];
   bool _hasReachedMax = false;
 
   Future<void> loadPopularPeople({bool refresh = false}) async {

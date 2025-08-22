@@ -23,15 +23,16 @@ class AppColors {
   // Supportive Colors
   static const Color kAccent = Color(0xFFFE8F29); // Orange used as accent
   static const Color kError = Color(0xFFDC2626); // Darker, more effective red
-  static const Color kSuccess =
-      Color(0xFF059669); // Darker, more effective green
+  static const Color kSuccess = Color(
+    0xFF059669,
+  ); // Darker, more effective green
   static const Color kWarning = Color(
     0xFFFFF0CF,
   ); // Optional: Can adjust if needed
   static const Color kInfo = Color(0xFF3498DB); // Optional: Can be muted blue
 
   // Backgrounds
-  static const Color kBackground = Color(0xfff9f7f4ff);
+  static const Color kBackground = Color(0xfff9f7f4);
   static const Color kWhite = Color(0xFFFFFFFF);
   static const Color kBlack = Color(0xFF000000);
 
