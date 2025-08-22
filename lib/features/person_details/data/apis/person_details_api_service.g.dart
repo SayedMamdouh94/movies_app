@@ -57,15 +57,10 @@ class _PersonDetailsApiService implements PersonDetailsApiService {
   @override
   Future<PersonImagesResponseModel> getPersonImages({
     required int personId,
-    String? language,
     required String apiKey,
   }) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'language': language,
-      r'api_key': apiKey,
-    };
-    queryParameters.removeWhere((k, v) => v == null);
+    final queryParameters = <String, dynamic>{r'api_key': apiKey};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<PersonImagesResponseModel>(
