@@ -51,7 +51,7 @@ class PopularPersonModel {
       _$PopularPersonModelFromJson(json);
 }
 
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class PopularPersonKnownForModel {
   final bool? adult;
   final int id;
@@ -107,4 +107,6 @@ class PopularPersonKnownForModel {
 
   factory PopularPersonKnownForModel.fromJson(Map<String, dynamic> json) =>
       _$PopularPersonKnownForModelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PopularPersonKnownForModelToJson(this);
 }

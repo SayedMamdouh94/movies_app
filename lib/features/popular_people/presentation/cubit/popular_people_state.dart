@@ -21,12 +21,14 @@ class PopularPeopleLoaded extends PopularPeopleState {
   final int currentPage;
   final int totalPages;
   final bool hasReachedMax;
+  final bool isOfflineMode;
 
   PopularPeopleLoaded({
     required this.people,
     required this.currentPage,
     required this.totalPages,
     this.hasReachedMax = false,
+    this.isOfflineMode = false,
   });
 
   PopularPeopleLoaded copyWith({
@@ -34,12 +36,14 @@ class PopularPeopleLoaded extends PopularPeopleState {
     int? currentPage,
     int? totalPages,
     bool? hasReachedMax,
+    bool? isOfflineMode,
   }) {
     return PopularPeopleLoaded(
       people: people ?? this.people,
       currentPage: currentPage ?? this.currentPage,
       totalPages: totalPages ?? this.totalPages,
       hasReachedMax: hasReachedMax ?? this.hasReachedMax,
+      isOfflineMode: isOfflineMode ?? this.isOfflineMode,
     );
   }
 }
@@ -47,6 +51,11 @@ class PopularPeopleLoaded extends PopularPeopleState {
 class PopularPeopleError extends PopularPeopleState {
   final String message;
   final List<PopularPersonModel>? currentPeople;
+  final bool isOfflineMode;
 
-  PopularPeopleError({required this.message, this.currentPeople});
+  PopularPeopleError({
+    required this.message,
+    this.currentPeople,
+    this.isOfflineMode = false,
+  });
 }

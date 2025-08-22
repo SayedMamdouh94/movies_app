@@ -108,7 +108,7 @@ class ImageSaveService {
       }
 
       // Show downloading message
-      showSnackBar('Downloading image...', isError: false);
+      showSnackBar('Downloading image...');
 
       // Download the image
       final response = await http
@@ -141,7 +141,7 @@ class ImageSaveService {
 
       // Check result
       if (result != null && result['isSuccess'] == true) {
-        showSnackBar('Image saved to gallery successfully!', isError: false);
+        showSnackBar('Image saved to gallery successfully!');
       } else {
         final error = result?['errorMessage'] ?? 'Unknown error occurred';
         showSnackBar('Failed to save image: $error', isError: true);

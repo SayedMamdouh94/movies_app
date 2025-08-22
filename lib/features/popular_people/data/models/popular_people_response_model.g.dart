@@ -60,3 +60,26 @@ PopularPersonKnownForModel _$PopularPersonKnownForModelFromJson(
       ?.map((e) => e as String)
       .toList(),
 );
+
+Map<String, dynamic> _$PopularPersonKnownForModelToJson(
+  PopularPersonKnownForModel instance,
+) => <String, dynamic>{
+  'adult': instance.adult,
+  'id': instance.id,
+  'media_type': instance.mediaType,
+  'original_language': instance.originalLanguage,
+  'original_title': instance.originalTitle,
+  'original_name': instance.originalName,
+  'overview': instance.overview,
+  'poster_path': instance.posterPath,
+  'backdrop_path': instance.backdropPath,
+  'release_date': instance.releaseDate,
+  'first_air_date': instance.firstAirDate,
+  'title': instance.title,
+  'name': instance.name,
+  'vote_average': instance.voteAverage,
+  'vote_count': instance.voteCount,
+  'video': instance.video,
+  'genre_ids': instance.genreIds,
+  'origin_country': instance.originCountry,
+};
